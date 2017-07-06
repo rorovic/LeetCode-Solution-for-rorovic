@@ -5,7 +5,7 @@ package main.java.solution;
  * EN:
  * You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
  * You may assume the two numbers do not contain any leading zero, except the number 0 itself.
- * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+ * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)      342   +    465     =   807   =   7 0 8
  * Output: 7 -> 0 -> 8
  * CH:
  *  有两个链表作为输入，它们表示逆序的两个非负数。如下面的两个链表表示的是342和465这两个数。
@@ -30,7 +30,8 @@ public class AddTwoNum2 {
         int maxLength;
         int minLength;
         LinkedList resultLink;//结果链表
-        int carry;
+        int carry; //加法进位
+        //step1: 确定maxLength和minLength ,链表在进行加法后,结果链表的长度为maxLength
         if(link1.size()>link2.size()){
             resultLink = link1;
             maxLength = link1.size();
