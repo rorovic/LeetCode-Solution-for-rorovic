@@ -24,58 +24,83 @@ import java.util.LinkedList;
  * }
  */
 
+class ListNode {
+         int val;
+         ListNode next;
+         ListNode(int x) { val = x; }
+}
+
 public class AddTwoNum2 {
 
-    public static LinkedList addTwoNumbers(LinkedList link1,LinkedList link2){
-        int maxLength;
-        int minLength;
-        LinkedList resultLink;//结果链表
-        int carry; //加法进位
-        //step1: 确定maxLength和minLength ,链表在进行加法后,结果链表的长度为maxLength
-        if(link1.size()>link2.size()){
-            resultLink = link1;
-            maxLength = link1.size();
-            minLength = link2.size();
-        } else {
-            resultLink = link2;
-            maxLength = link2.size();
-            minLength = link1.size();
+    /**
+     * Two things to make the code simple:
+     Whenever one of the two ListNode is null, replace it with 0.
+     Keep the while loop going when at least one of the three conditions is met.
+     *
+     * @param l1
+     * @param l2
+     * @return
+     */
+    static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode prev = new ListNode(0);
+        ListNode head = prev;
+        int carry = 0;
+        while (l1 != null || l2 != null || carry != 0) {
+            ListNode cur = new ListNode(0);
+            int sum = ((l2 == null) ? 0 : l2.val) + ((l1 == null) ? 0 : l1.val) + carry;
+            cur.val = sum % 10;
+            carry = sum / 10;
+            prev.next = cur;
+            prev = cur;
+
+            l1 = (l1 == null) ? l1 : l1.next;
+            l2 = (l2 == null) ? l2 : l2.next;
         }
-        for(int i =0;i<minLength;i++){
-            carry = 0;
-            int result = (int)link1.get(i)+(int)link2.get(i)+carry;
-            if(result>=10){//进位
-                carry = result/10;
-                if(i==minLength-1){//超出了链表长度
-                    if(i<maxLength-1){//没有超出最长，不用加位置
-                        resultLink.set(i+1, (int)resultLink.get(i+1)+carry);
-                    }else {//超出最长需要加链表长度
-                        resultLink.addLast(carry);
-                    }
-                }
-                resultLink.set(i, result%10);
-            }else {//不进位
-                resultLink.set(i, result);
+        return head.next;
+    }
+
+    /**
+     * Java solution -- concise and easy to understand
+     * @param l1
+     * @param l2
+     * @return
+     */
+    static ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
+        if(l1==null) return l2;
+        if(l2==null) return l1;
+
+        ListNode head = new ListNode(0);
+        ListNode p = head;
+
+        int tmp = 0;
+        while(l1!=null || l2!=null || tmp!=0) {
+            if(l1!=null) {
+                tmp += l1.val;
+                l1 = l1.next;
             }
+            if(l2!=null) {
+                tmp += l2.val;
+                l2 = l2.next;
+            }
+
+            p.next = new ListNode(tmp%10);
+            p = p.next;
+            tmp = tmp/10;
         }
-        return resultLink;
+        return head.next;
     }
 
     public static void main(String[] args){
-        //1 > 2
-        LinkedList link1 = new LinkedList();
-        link1.addLast(1);
-        link1.addLast(2);
-        //1 > 9 > 2
-        LinkedList link2 = new LinkedList();
-        link2.addLast(1);
-        link2.addLast(9);
-        link2.addLast(2);
-        LinkedList resultLink = addTwoNumbers(link1, link2);
-        //21+291 = 312 > 2 1 3
-        for(Object i : resultLink){
-            System.out.println(""+(int)i);
-        }
+        ListNode l1 = new ListNode(3);
+        l1.next.val = 1;
+        l1.next.val = 2;
+        ListNode l2 = new ListNode(3);
+        l2.next.val = 10;
+        l2.next.val = 8;
+        l2.next.val = 9;
+        addTwoNumbers(l1,l2);
+
+
 
     }
 }
