@@ -26,6 +26,10 @@ package main.java.solution;
 public class InterTwoLink160 {
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if(headA==null || headB == null) return null;
+        ListNode p = headA;
+        ListNode q = headB;
+        int pcount,qcount = 0;
 
 
         return null;
