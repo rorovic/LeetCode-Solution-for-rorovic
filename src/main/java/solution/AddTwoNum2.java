@@ -12,9 +12,6 @@ package main.java.solution;
  *  你需要计算它们的和并且用同样的方式逆序输出。如342+465 = 807,你需要把结果表达为7 ->0 ->8
  */
 
-
-import java.util.LinkedList;
-
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -24,13 +21,34 @@ import java.util.LinkedList;
  * }
  */
 
-class ListNode {
-         int val;
-         ListNode next;
-         ListNode(int x) { val = x; }
-}
-
 public class AddTwoNum2 {
+
+
+    static ListNode addTest(ListNode l1,ListNode l2){
+        //l1,l2如果为空则,返回另外一个ListNode
+        if(l1 == null){return l2;}
+        if(l2 == null){return l1;}
+
+        ListNode head = new ListNode(0); //头结点
+        ListNode p = head;
+        int temp = 0; //临时
+        while (l1!=null||l2!=null||temp!=0){
+            if(l1!=null){
+                temp += l1.val;
+                l1 = l1.next;
+            }
+            if (l2!=null){
+                temp += l2.val;
+                l2 = l2.next;
+            }
+
+            p.next = new ListNode(temp%10);
+            p = p.next;
+            temp = temp/10;
+        }
+        return head.next;
+    }
+
 
     /**
      * Two things to make the code simple:
