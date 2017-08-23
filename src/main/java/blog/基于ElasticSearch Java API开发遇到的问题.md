@@ -1,1 +1,2 @@
 因为任务安排，开发的重心，从Spark Streaming转移到了，基于ElasticSearch的开发。这次遇到的问题，是基于ElasticSearch的Java API开发时，遇到的。报错现象如下：  
+`TransportSerializationException[Failed to deserialize response of type [org.elasticsearch.action.search.SearchResponse]]; nested: ExceptionInInitializerError; nested: IllegalArgumentException[An SPI class of type org.apache.lucene.codecs.PostingsFormat with name 'Lucene50' does not exist.  You need to add the corresponding JAR file supporting this SPI to your classpath.  The current classpath supports the following names: [completion]];`  
