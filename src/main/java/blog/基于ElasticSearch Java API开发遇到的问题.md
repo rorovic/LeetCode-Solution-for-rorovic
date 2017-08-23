@@ -1,0 +1,1 @@
+因为任务安排，开发的重心，从Spark Streaming转移到了，基于ElasticSearch的开发。这次遇到的问题，是基于ElasticSearch的Java API开发时，遇到的。报错现象如下：  
