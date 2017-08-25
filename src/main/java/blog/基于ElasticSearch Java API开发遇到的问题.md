@@ -16,7 +16,7 @@ Java spi机制：
  
  ![image](https://github.com/rorovic/LeetCode-Solution-for-rorovic/tree/master/blob/master/blog-001.png)
  
- ![github](https://github.com/rorovic/LeetCode-Solution-for-rorovic/tree/master/blob/master/blog-001.png "github")
+ ![alt text](https://github.com/rorovic/LeetCode-Solution-for-rorovic/tree/master/blob/master/blog-001.png "现象一")
 
 解决方法：  
      如果你使用的是IDEA，那么请手动在工程的src目录下创建目录META-INF/services/ 并手动将上面两个红框里的内容做合并，这样所有路径都包含了，缺一不可。  
