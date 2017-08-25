@@ -19,7 +19,7 @@ Java spi机制：
 解决方法：  
      如果你使用的是IDEA，那么请手动在工程的src目录下创建目录META-INF/services/ 并手动将上面两个红框里的内容做合并，这样所有路径都包含了，缺一不可。  
 
-![Alt text](https://github.com/rorovic/LeetCode-Solution-for-rorovic/tree/master/blob/master/blog-002.png "现象二")
+![Alt text](https://github.com/rorovic/LeetCode-Solution-for-rorovic/blob/master/blob/master/blog-002.png "现象二")
 
 接下来打包成jar，并解压缩jar包，看到jar包里META-INF/service/ 文件夹下面的文件均包含了lib里的所有路径后。开始测试运行。程序执行成功！哈哈！
 
