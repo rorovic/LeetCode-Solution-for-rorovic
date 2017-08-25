@@ -14,9 +14,9 @@ Java spi机制：
   org.apache.lucene.codecs.lucene50.Lucene50PostingsFormat
  所以根据报错，推测错误里报的就是没有读取到第二个红框里的文件的路径。  
  
- ![image](https://github.com/rorovic/LeetCode-Solution-for-rorovic/tree/master/blob/master/blog-001.png)
+![image](https://github.com/rorovic/LeetCode-Solution-for-rorovic/tree/master/blob/master/blog-001.png)
  
- ![alt text](https://github.com/rorovic/LeetCode-Solution-for-rorovic/tree/master/blob/master/blog-001.png "现象一")
+![alt text](https://github.com/rorovic/LeetCode-Solution-for-rorovic/tree/master/blob/master/blog-001.png "现象一")
 
 解决方法：  
      如果你使用的是IDEA，那么请手动在工程的src目录下创建目录META-INF/services/ 并手动将上面两个红框里的内容做合并，这样所有路径都包含了，缺一不可。  
